@@ -28,8 +28,8 @@ const EmployeeData = [
     }
 ]
 
-// Create GraphQL Todo Schema 
-const EmployeeType = new GraphQLObjectType({
+
+const EmployeeType = new ({
     name:'employees',
     description:'A employees schema',
     fields: ()=>({
@@ -72,7 +72,7 @@ const RootQueryType = new GraphQLObjectType({
 
 const schema = new GraphQLSchema({
     query:RootQueryType,
-    //mutation: RootMutationType,
+    
 })
 
 app.use('/',expressGraphQL({
