@@ -1,35 +1,19 @@
 const express = require('express')  
 const expressGraphQL = require('express-graphql').graphqlHTTP
-//const employees = require('./data/employees')
 
-const { 
-        GraphQLObjectType,
-        GraphQLString,
-        GraphQLNonNull,
-        GraphQLList,
-        GraphQLInt,
-        GraphQLSchema,
-} = require('graphql')
 const app = express() 
+const EmployeeData = require('./data/employees')
+console.log(EmployeeData)
+const { 
+    GraphQLObjectType,
+    GraphQLString,
+    GraphQLNonNull,
+    GraphQLList,
+    GraphQLInt,
+    GraphQLSchema,
+} = require('graphql')
 
-const EmployeeData = [
-    {
-        id:1,
-        emp_name:'John Varghese',
-        emp_designation:'IT Manager',
-        emp_address:'Pune'
-    },
-    {
-        id:2,
-        emp_name:'Adam Smith',
-        emp_designation:'Developer',
-        emp_address:'Germany'
-
-    }
-]
-
-
-const EmployeeType = new ({
+const EmployeeType = new GraphQLObjectType({
     name:'employees',
     description:'A employees schema',
     fields: ()=>({
@@ -81,7 +65,7 @@ app.use('/',expressGraphQL({
 
 }))
 
-const PORT = 8080 || process.env.PORT
+const PORT = 8080
 app.listen(PORT,()=> console.log('Server Running'))
 
 

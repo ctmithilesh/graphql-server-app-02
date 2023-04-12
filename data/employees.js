@@ -1,11 +1,16 @@
 const employees = [
     {
-        emp_id:1,
+        id:1,
         emp_name:'John Varghese',
         emp_designation:'IT Manager',
         emp_address:'Pune'
-    }
-]
-module.exports = {
-    employees
-}
+    },
+    {
+        id:2,
+        emp_name:'Adam Smith',
+        emp_designation:'Developer',
+        emp_address:'Germany'
+
+    }]
+
+module.exports = employees
